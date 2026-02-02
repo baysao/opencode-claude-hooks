@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+bun.lock
+
+# Build output
+dist/
+
+# Logs
+*.log
+.hook-logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local settings (user-specific, not committed)
+.claude/settings.local.json
+
+# Test outputs
+coverage/
+.nyc_output/

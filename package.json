@@ -1,0 +1,70 @@
+{
+  "name": "opencode-claude-hooks",
+  "version": "0.1.0",
+  "description": "OpenCode plugin for Claude Code hooks compatibility",
+  "author": "Martin Garcia",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/magarcia/opencode-claude-hooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/magarcia/opencode-claude-hooks/issues"
+  },
+  "homepage": "https://github.com/magarcia/opencode-claude-hooks#readme",
+  "keywords": [
+    "opencode",
+    "claude",
+    "claude-code",
+    "hooks",
+    "plugin",
+    "automation"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "src/index.ts",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "bun": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target bun",
+    "typecheck": "tsc --noEmit",
+    "dev": "bun run --watch src/index.ts",
+    "prepublishOnly": "bun run typecheck && bun run build",
+    "release:patch": "npm version patch && git push --follow-tags && npm publish",
+    "release:minor": "npm version minor && git push --follow-tags && npm publish",
+    "release:major": "npm version major && git push --follow-tags && npm publish"
+  },
+  "opencode": {
+    "displayName": "Claude Code Hooks",
+    "category": "automation"
+  },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.1.39",
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": "*"
+  },
+  "peerDependenciesMeta": {
+    "@opencode-ai/plugin": {
+      "optional": true
+    }
+  }
+}
